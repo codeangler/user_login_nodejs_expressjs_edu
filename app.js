@@ -66,7 +66,7 @@ app.use(expressValidator({
 }));
 
 // Express-messages
-app.use(require('connect-flash')());
+app.use(flash());
 app.use(function (req, res, next) {
   res.locals.messages = require('express-messages')(req, res);
   next();
