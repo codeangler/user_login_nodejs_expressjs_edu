@@ -1,14 +1,19 @@
 # user_login_nodejs_expressjs_edu
 
+I built an app that demonstrates user registration, login, and members only area. The views conditionally display navigation menus dependant on status of user.  Client recieve feedback messages on success / failure of registration or login or logout.  Passport is used for localstrategy.  Bcryptjs is used for hashing passwords.  Jade is used for templating views.  MongoDB is used with Mongoose. Bootstrap 3 is used for quick and simple design
+
 <ul>
   <li>NodeJS</li>
   <li>Express</li>
   <li>Passport</li>
-  <li>Bcyrpt</li>
+  <li>Bcyrptjs</li>
   <li>multer</li>
-  <li></li>
+  <li>MongoDB</li>
+  <li>Mongoose</li>
   <li>express-generator</li>
   <li>Bootstrap</li>
+  <li>ES6</li>
+  <li>'use strict';</li>
 </ul>
 
 ### Perptual Learning

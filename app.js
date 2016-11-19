@@ -1,25 +1,27 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var session = require('express-session');
-var passport = require('passport');
-var expressValidator = require('express-validator');
-var LocalStrategy = require('passport-local').Strategy;
-var multer = require('multer');
+"use strict";
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const bodyParser = require('body-parser');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const expressValidator = require('express-validator');
+const bcrypt = require('bcryptjs');
+const multer = require('multer');
 // Handle File Uploads
-var upload = multer({dest: './uploads'});
-var flash = require('connect-flash');
-var mongo = require('mongodb');
-var mongoose = require('mongoose');
-var db = mongoose.connection;
+const upload = multer({dest: './uploads'});
+const flash = require('connect-flash');
+const mongo = require('mongodb');
+const mongoose = require('mongoose');
+const db = mongoose.connection;
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+const index = require('./routes/index');
+const users = require('./routes/users');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -72,6 +74,10 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.get('*', function(req, res, next){
+  res.locals.user = req.user || null;
+  next();
+});
 
 app.use('/', index);
 app.use('/users', users);
